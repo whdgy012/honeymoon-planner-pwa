@@ -1,4 +1,4 @@
-const VERSION='honeymoon-pwa-v6';
+const VERSION='honeymoon-pwa-v7-location-route';
 const CORE=['./','./index.html','./manifest.webmanifest','./icons/icon-192.png','./icons/icon-512.png','./icons/icon-maskable-512.png','./icons/apple-touch-icon-180.png','./assets/overview.png','./assets/seville.png','./assets/lisbon.png','./assets/porto.png','./assets/barcelona.png'];
 self.addEventListener('install',event=>{event.waitUntil(caches.open(VERSION).then(cache=>cache.addAll(CORE)));});
 self.addEventListener('activate',event=>{event.waitUntil(Promise.all([caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==VERSION).map(k=>caches.delete(k)))),self.clients.claim()]));});
