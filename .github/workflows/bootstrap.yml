@@ -18,8 +18,8 @@ jobs:
           echo "f596d92352e307ef09bcf987a5f1c4c40beffa4ca1aeed30c79874453001046b  /tmp/honeymoon-pwa.zip" | sha256sum -c -
           unzip -oq /tmp/honeymoon-pwa.zip -d .
           rm -rf .payload
-          rm -f .github/workflows/bootstrap.yml README.md
-      - name: Commit restored PWA files
+          rm -f .github/workflows/pages.yml README.md
+      - name: Commit restored app files
         shell: bash
         run: |
           set -euo pipefail
