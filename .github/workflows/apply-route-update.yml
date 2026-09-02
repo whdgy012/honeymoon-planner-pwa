@@ -7,7 +7,6 @@ permissions:
   contents: write
 jobs:
   update:
-    if: ${{ hashFiles('.updates/route.patch') != '' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
