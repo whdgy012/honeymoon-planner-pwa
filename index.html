@@ -396,9 +396,9 @@ const originalOpenInfographic=openInfographic;
 openInfographic=function(k){originalOpenInfographic(k);const stage=$('#infographicViewer .infographic-stage');if(stage&&!stage.dataset.doubleTap){let lastTap=0;stage.addEventListener('click',()=>{const now=Date.now();if(now-lastTap<320)zoomInfographic(.5);lastTap=now});stage.dataset.doubleTap='1'}const reset=$('#infographicViewer .infographic-controls button:nth-child(2)');if(reset)reset.textContent='화면 맞춤'};
 function applyInfographicScale(){const img=$('#infographicZoomImage');if(img)img.style.width=`${infographicScale*100}%`;const reset=$('#infographicViewer .infographic-controls button:nth-child(2)');if(reset)reset.textContent=infographicScale===1?'화면 맞춤':`${Math.round(infographicScale*100)}%`}
 
-$('.nav').forEach(b=>b.setAttribute('aria-label',b.textContent.trim()));
+$$('.nav').forEach(b=>b.setAttribute('aria-label',b.textContent.trim()));
 
-$('.nav').forEach(b=>b.addEventListener('click',()=>showPage(b.dataset.page)));$('#costModal').addEventListener('click',e=>{if(e.target.id==='costModal')closeCost()});
+$$('.nav').forEach(b=>b.addEventListener('click',()=>showPage(b.dataset.page)));$('#costModal').addEventListener('click',e=>{if(e.target.id==='costModal')closeCost()});
 const initial=['home','schedule','maps','budget','reserve'].includes(location.hash.slice(1))?location.hash.slice(1):'home';showPage(initial);
 </script>
 <script>
