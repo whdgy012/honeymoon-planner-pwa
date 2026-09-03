@@ -369,8 +369,8 @@ function renderDay(){
 function ensureNextRouteButton(){
   const toolbar=$('#maps .map-toolbar'),google=$('#googleRoute');if(!toolbar||!google)return;
   let btn=$('#nextScheduleRoute');if(!btn){btn=document.createElement('button');btn.id='nextScheduleRoute';btn.type='button';btn.addEventListener('click',routeToNextSchedule)}
-  btn.className='map-tool route-next';btn.textContent='현재 위치 → 다음 일정 길찾기';toolbar.prepend(btn);google.textContent='Google Maps로 열기 ↗';
-  const refresh=[...toolbar.querySelectorAll('button')].find(x=>x.textContent.includes('새로계산'));if(refresh)refresh.textContent='경로 다시 계산';
+  btn.className='map-tool route-next';if(btn.textContent!=='현재 위치 → 다음 일정 길찾기')btn.textContent='현재 위치 → 다음 일정 길찾기';if(toolbar.firstElementChild!==btn)toolbar.prepend(btn);if(google.textContent!=='Google Maps로 열기 ↗')google.textContent='Google Maps로 열기 ↗';
+  const refresh=[...toolbar.querySelectorAll('button')].find(x=>x.textContent.includes('새로계산'));if(refresh&&refresh.textContent!=='경로 다시 계산')refresh.textContent='경로 다시 계산';
   if(!toolbar.previousElementSibling?.classList.contains('route-ux-note'))toolbar.insertAdjacentHTML('beforebegin','<div class="route-ux-note"><b>경로 선택</b> · 선택 없음은 전체 경로, 번호 선택은 해당 번호에서 다음 번호까지 표시합니다.</div>')
 }
 
