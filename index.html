@@ -373,6 +373,9 @@ function ensureNextRouteButton(){
   const refresh=[...toolbar.querySelectorAll('button')].find(x=>x.textContent.includes('새로계산'));if(refresh&&refresh.textContent!=='경로 다시 계산')refresh.textContent='경로 다시 계산';
   if(!toolbar.previousElementSibling?.classList.contains('route-ux-note'))toolbar.insertAdjacentHTML('beforebegin','<div class="route-ux-note"><b>경로 선택</b> · 선택 없음은 전체 경로, 번호 선택은 해당 번호에서 다음 번호까지 표시합니다.</div>')
 }
+mapToolbarObserver.disconnect();
+const renderMapsBeforeUx=renderMaps;
+renderMaps=function(){renderMapsBeforeUx();ensureNextRouteButton()};
 
 function parseMoney(v){return Number(String(v||'').replace(/[^0-9.-]/g,''))||0}
 function moneyField(id,value,unit){return `<div class="money-input-wrap"><input class="budget-input" id="${id}" type="text" inputmode="numeric" value="${Number(value).toLocaleString('ko-KR')}" onfocus="this.value=parseMoney(this.value)" onblur="this.value=parseMoney(this.value).toLocaleString('ko-KR')"><span>${unit}</span></div>`}
